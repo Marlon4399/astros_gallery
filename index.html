@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Astro's Gallery - Página Inicial</title>
+    <link rel="stylesheet" type="text/css" href="estilizacao/estilizacao_pagina_inicial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="imgs/favicon_novo_logo_astro.png">
+</head>
+<body>
+
+    <div id="conteudo">
+
+        <div id="coluna1">
+
+            <p id="saudacao">Seja bem-vindo</p>
+            <p id="saudacao2">A nossa Galeria de Artes Virtual!</p>
+
+            <img src="imgs/novo_logo_astro.png" id="logo">
+
+            <img src="imgs/nome_logo.png" id="nome_logo">
+
+            <div id="degrade2"></div>
+
+        </div>
+
+        <div id="coluna2">
+
+            <form id="formulario" method="POST" action="manipulacao/login.php">
+
+                <div id="degrade"></div>
+                
+                <div id="campo_email"><!-- usuario = login = email -->
+                    <input type="email" name="login" placeholder="Digite o E-mail"><i class='fa fa-user' style='font-size:36px; background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221)); border-radius: 0px 5px 5px 0px; padding: 7px 10px; margin-top: 30px;'></i>
+                </div>
+
+                <div id="campo_senha">
+                    <input type="password" name="senha" placeholder="Digite a Senha"><i class='fa fa-lock' style='font-size:36px; background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221)); border-radius: 0px 5px 5px 0px; padding: 7px 10px; margin-top: 30px;'></i>
+                </div>
+
+                <button type="submit" id="btn_logar" class="btns">Entrar</button>
+    
+                <h5><span>OU</span></h5>
+                
+                <a href="interface/cadastrar.php" style="text-decoration: none; color: white; width: 100%;">
+                    <button type="button" id="btn_cadastrar" class="btns">Cadastrar-se</button>
+                </a>
+
+            </form>
+
+        </div>
+        
+        <p id="slogan">"A arte está em todos, mostre a sua..."</p>
+
+    </div>
+
+    <footer id="rodape">
+        <div id="informacoes">
+            <div id="sobre">
+                <h2 class="titulo_informacoes">Quem somos?</h2>
+
+                <p class="sobre_informacoes">
+                    A <strong style="color: rgb(131, 57, 200);">Astro's Gallery</strong> é uma plataforma que procura disponibilizar e 
+                    fornecer serviços e, ao mesmo tempo, um espaço seguro e organizado para que artistas 
+                    e designers possam interagir, consumir e partilhar suas artes, obras ou trabalhos.
+                </p>
+                <p class="sobre_informacoes">
+                    Sendo um lugar para vender, apresentar e divulgar o artista autônomo. Além disso, 
+                    propondo conhecimento e entretenimento através da arte digital.
+                </p>
+
+                <i class="fa fa-info" style="font-size: 84px; float: right; margin-top: -140px; color: rgb(131, 57, 200);"></i>
+            </div>
+
+            <div id="contatos">
+                <h2 class="titulo_informacoes">Fale Conosco:</h2>
+
+                <p>jhonhenrique428@gmail.com</p>
+                <p class="contato_email">jhon.oliveira@etec.sp.gov.br</p>
+
+                <p>gamasouza82@gmail.com</p>
+                <p class="contato_email">leonardo.souza395@etec.sp.gov.br</p>
+
+                <p>marlinhoda30@gmail.com</p>
+                <p>marlon.castor@etec.sp.gov.br</p>
+
+                <i class="fa fa-envelope" style="font-size: 84px; float: right; margin-top: -120px; color: rgb(131, 57, 200);"></i>
+            </div>
+        </div>
+
+        <p id="copyright">© Copyright 2021. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

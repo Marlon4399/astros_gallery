@@ -1,0 +1,402 @@
+/* HOME_USUARIOS.HTML */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #1c1c1c;
+}
+
+.container{
+    width: 1300px;
+    margin: auto;
+}
+
+/* < Menu do Header > */
+    #cabecalho{
+        width: 100%;
+        height: 220px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    img{
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+
+    #logo{
+        float: left;
+    }
+
+    #nome_logo{
+        border-radius: 0;
+        position: absolute;
+        width: 250px;
+        height: 225px;
+        margin-top: 30px;
+    }
+
+    #menu_h #lista_h{
+        float: right;
+        list-style: none;
+    }
+
+    #menu_h #lista_h .linha_h{
+        display: inline;
+    }
+
+    #menu_h #lista_h .linha_h .item_h{
+        padding: 97px 40px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    #menu_h #lista_h .linha_h .item_h:hover{
+        color: black;
+        background-image: -webkit-linear-gradient( bottom, rgb(255,255,255), transparent);
+    }
+/* </> */
+
+#degrade_superior{
+    height: 30px;
+    margin-top: 0px;
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+}
+
+#degrade_inferior{
+    height: 30px;
+    margin-bottom: 0px;
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+}
+
+#area_pagamento{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 600px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+#obra{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 35%;
+    height: 700px;
+    background-color: #1c1c1c;
+    box-shadow: 0px 0px 10px 7px black;
+}
+
+#moldura{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    border: 10px ridge goldenrod;
+    width: 80%;
+    height: 350px;
+}
+
+#icone_obra{
+    width: 80%;
+    height: 80%;
+    border-radius: 0px;
+    padding: 10px;
+    border: 10px ridge goldenrod;
+    background-image: -webkit-linear-gradient(bottom, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221), rgb(255, 255, 255));
+}
+
+#conteudo{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 700px;
+    box-sizing: border-box;
+    /*background-color: rgb(136, 138, 139);*/
+}
+
+/* < Modal - Opções de Pagamento > */
+    .opcao_pagamento_credito_modal, .opcao_pagamento_debito_modal{
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.705);
+        position: fixed;
+        visibility: hidden;
+        z-index: 1;
+    }
+
+    .conteudo_credito_modal, .conteudo_debito_modal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    #form_credito_modal, #form_debito_modal{
+        width: 50vw;
+        height: 80%;
+        padding: 10px;
+        text-align: center;
+        background-color: black;
+        border-radius: 15px;
+        box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+    }
+
+    /*#modal_img{
+        width: 65vw;
+        transform: scale(0);
+        transition: all linear 0.3s;
+    }
+    
+    .modal_active #modal_img{
+        transform: scale(1);
+    }*/
+
+    .row{
+        /*background-color: tomato;*/
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    /*#dados_debito{
+        padding-top: 10px;
+        
+        background-image: url("cartao_na_maquininha.jpg");
+        background-size: 100%100%;
+    }*/
+
+    .modal_active{
+        visibility: visible;
+    }
+    
+    .btn_voltar_opcoes_pagamento{
+        color: #fff;
+        background-color: rgb(32, 32, 32);
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        padding: 5px 15px;
+        font-size: 30px;
+        border: 2px solid #fff;
+        cursor: pointer;
+    }
+
+    .btn_voltar_opcoes_pagamento:hover{
+        background-image: -webkit-linear-gradient(top, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    .btn_voltar_opcoes_pagamento:active{
+        transform: scale(0.9);
+    }
+    
+    #img_opcoes_pagamento{
+        border: 10px solid goldenrod;
+    }
+
+    .img_cartoes{
+        padding: 10px;
+        background-image: -webkit-linear-gradient(top, rgb(68, 0, 255), rgb(184, 35, 221));
+        border-radius: 10%;
+        width: 325px;
+        height: 225px;
+        margin-top: -60px;
+    }
+
+    .img_cartao_na_maquininha{
+        border-radius: 0px;
+        position: absolute;
+        border: 10px solid goldenrod;
+        top: 20px;
+    }
+/* </> */
+
+#informacoes_pagamento{
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    padding: 15px;
+}
+
+#titulo_opcoes_pagamento{
+    color: rgb(131, 57, 200);
+    text-align: center;
+    margin-top: 30px;
+}
+
+#img_opcoes_pagamento{
+    border-radius: 0px;
+    width: 700px;
+    height: 400px;
+    margin-top: 30px;
+}
+
+#opcao_pagamento_credito{
+    background-color: gray;
+}
+
+#opcao_pagamento_debito{
+    background-color: rgb(78, 78, 78);
+}
+
+p{
+    margin-bottom: 30px;
+}
+
+label{
+    padding: 10px;
+    color: rgb(131, 57, 200);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input{
+    width: 280px;
+    height: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 15px;
+    margin: 5px;
+    outline: none;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+input:focus{
+    border-color: rgb(131, 57, 200);
+    box-shadow: 0px 0px 5px 3px rgb(131, 57, 200);
+}
+
+select{
+    width: 305px;
+    height: 40px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #1c1c1c;
+    color: white;
+    padding-left: 5px;
+}
+
+.btns{
+    margin: 30px;
+    color: white;
+    border: none;
+    width: 250px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 30px;
+    outline: none;
+    cursor: pointer;
+}
+.btns:active{
+    transform: scale(0.9);
+}
+
+#btn_dados_cartao_credito button{
+    background-color: rgb(184, 35, 221);
+}
+
+#btn_dados_cartao_credito button:hover{
+    background-color: rgb(124, 24, 149);
+}
+
+#btn_dados_cartao_debito button{
+    background-color: rgb(68, 0, 255);
+}
+
+#btn_dados_cartao_debito button:hover{
+    background-color: rgb(41, 0, 153);
+}
+
+.btn_continuar{
+    color: white;
+    border: none;
+    width: 310px;
+    height: 45px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 30px;
+    outline: none;
+    background-color: rgb(54, 207, 54);
+    cursor: pointer;
+}
+
+.btn_continuar:hover{
+    background-color: rgb(27, 170, 27);
+}
+
+/*#rodape{
+    clear: both;
+    width: 100%;
+    height: 100px;
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    text-align: center;
+    line-height: 100px;
+    font-size: 18px;
+    font-weight: bold;
+}*/
+
+#rodape{
+    width: 100%;
+    height: 340px;
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    font-size: 20px;
+}
+
+#informacoes{
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.titulo_informacoes{
+    color: rgb(131, 57, 200);
+    text-align: center;
+    padding: 10px;
+}
+
+#sobre{
+    width: 600px;
+    padding: 10px;
+    margin: 10px;
+    /*background-color: #1c1c1c;*/
+    text-align: justify;
+}
+
+.sobre_informacoes{
+    width: 550px;
+    margin-bottom: 10px;
+}
+
+#contatos{
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    /*background-color: #353535;*/
+    text-align: justify;
+}
+
+.contato_email{
+    margin-bottom: 10px;
+}
+
+#copyright{
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    text-align: center;
+    line-height: 75px;
+    font-weight: bold;
+}

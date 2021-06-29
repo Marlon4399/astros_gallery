@@ -1,0 +1,976 @@
+/* HOME_USUARIOS.HTML */
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background-color: #1c1c1c;
+    }
+
+    .container{
+        width: 1300px;
+        margin: auto;
+    }
+
+    /* < Menu do Header > */
+        #cabecalho{
+            width: 100%;
+            height: 220px;
+            background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+        }
+
+        img{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+
+        #logo{
+            float: left;
+        }
+
+        #nome_logo{
+            position: absolute;
+            width: 250px;
+            height: 225px;
+            margin-top: 30px;
+        }
+
+        #menu_h #lista_h{
+            float: right;
+            list-style: none;
+        }
+
+        #menu_h #lista_h .linha_h{
+            display: inline;
+        }
+
+        #menu_h #lista_h .linha_h .item_h{
+            padding: 97px 40px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        #menu_h #lista_h .linha_h .item_h:hover{
+            color: black;
+            background-image: -webkit-linear-gradient( bottom, rgb(255,255,255), transparent);
+        }
+    /* </> */
+
+    #fundo_tematico{
+        margin-top: 100px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-image: -webkit-linear-gradient( top, rgb(0, 0, 0), rgb(68, 0, 255), rgb(255, 255, 255));
+    }
+
+    #conteudo_fundo_tematico{
+        text-align: center;
+        cursor: pointer;
+    }
+
+    #mensagem{
+        color: rgb(131, 57, 200);
+        font-size: 40px;
+        font-weight: bolder;
+        text-shadow: 1px 1px white;
+    }
+
+    /* < Tooltip > */
+        .tooltip{
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext{
+            visibility: hidden;
+            width: 350px;
+            height: 420px;
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 10%;
+            margin-left: -60px;
+            opacity: 0;
+            transform: scale(0);
+            box-shadow: 3px 3px 10px 5px rgb(131, 57, 200);
+            transition: linear opacity 0.3s, transform 0.3s;
+        }
+
+        .tooltip .tooltiptext::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            border-width: 15px;
+            border-style: solid;
+            border-color: transparent rgb(0, 0, 0) transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext{
+            visibility: visible;
+            transform: scale(1);
+            opacity: 1;
+            padding: 20px;
+            font-size: 30px;
+        }
+    /* </> */
+
+    /* < Popup container - pode ser o que você quiser */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* O popup real */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 350px;
+            height: 420px;
+            background-color: rgb(0, 0, 0);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+            padding: 20px;
+            font-size: 30px;
+            box-shadow: 3px 3px 10px 5px rgb(131, 57, 200);
+        }
+        
+        /* Seta Popup */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: rgb(0, 0, 0) transparent transparent transparent;
+        }
+        
+        /* Alternar esta classe - ocultar e mostrar o popup */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+        
+        /* Adicionar animação (fade no popup) */
+        @-webkit-keyframes fadeIn {
+            from {opacity: 0;} 
+            to {opacity: 1;}
+        }
+        
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity:1 ;}
+        }
+    /* </> */
+
+    #area_perfil{
+        height: 500px;
+        /*background-color: rgb(154, 160, 167);*/
+        margin-top: 100px;
+    }
+
+    #conteudo{
+        float: right;
+        width: 1020px;
+        height: 615px;
+        background-color: rgb(214, 214, 214);
+        margin-left: 10px;
+        padding-bottom: 15px;
+    }
+
+    /* < Área de Publicações > */
+        #area_publicacoes{
+            height: 615px;
+            text-align: center;
+            overflow: auto;
+        }
+
+    /* < Modal - Opções de Pagamento > 
+        .opcao_pagamento_credito_modal, .opcao_pagamento_debito_modal{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.705);
+            position: fixed;
+            visibility: hidden;
+            z-index: 1;
+        }
+
+        .conteudo_credito_modal, .conteudo_debito_modal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #form_credito_modal, #form_debito_modal{
+            width: 50vw;
+            height: 80%;
+            padding: 10px;
+            text-align: center;
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);
+        }
+
+        .row{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .modal_active{
+            visibility: visible;
+        }
+        
+        .btn_voltar_opcoes_pagamento{
+            color: #fff;
+            background-color: rgb(32, 32, 32);
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 5px 15px;
+            font-size: 30px;
+            border: 2px solid #fff;
+            cursor: pointer;
+        }
+
+        .btn_voltar_opcoes_pagamento:hover{
+            background-image: -webkit-linear-gradient(top, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221));
+        }
+
+        .btn_voltar_opcoes_pagamento:active{
+            transform: scale(0.9);
+        }
+        
+        #img_opcoes_pagamento{
+            border: 10px solid goldenrod;
+        }
+
+        .img_cartoes{
+            padding: 10px;
+            background-image: -webkit-linear-gradient(top, rgb(68, 0, 255), rgb(184, 35, 221));
+            border-radius: 10%;
+            width: 325px;
+            height: 225px;
+            margin-top: -60px;
+        }
+
+        .img_cartao_na_maquininha{
+            border-radius: 0px;
+            position: absolute;
+            border: 10px solid goldenrod;
+            top: 20px;
+        }*/
+    /* </> */
+
+        /* Meu modal */
+        .addObra_modal{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.705);
+            position: fixed;
+            visibility: hidden;
+            z-index: 1;
+        }
+
+        .conteudo_addObra_modal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #form_addObra_modal{
+            width: 70vw;
+            height: 80%;
+            text-align: center;
+            background-image: -webkit-linear-gradient(bottom, rgb(68, 0, 255), rgb(184, 35, 221), rgb(255, 255, 255));
+            /*border-radius: 15px;*/
+            box-shadow: 0px 0px 15px 1px rgb(90, 90, 90);
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .modal_active{
+            visibility: visible;
+        }
+
+        #titulo_cadastro_obras{
+            width: 350px;
+            margin: auto;
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 35px;
+            /*text-shadow: 1px 1px rgb(255, 255, 255);*/
+            /*box-shadow: 0px 0px 10px 1px rgb(255, 255, 255);*/
+        }
+
+        /* < Linha Horizontal que contém a palavra "OU" do FORM > */
+            h5{
+                color: rgb(0, 0, 0);
+                margin: auto;
+                margin-top: 30px;
+                line-height: 0px;
+            }
+
+            h5:before{
+                background-color: rgb(0, 0, 0);
+                display: inline-block;
+                width: 37%;
+                height: 2px;
+                content: "";
+                margin-right: -400px;
+                margin-bottom: -3px;
+            }
+
+            h5:after{
+                background-color: rgb(0, 0, 0);
+                display: inline-block;
+                width: 37%;
+                height: 2px;
+                content: "";
+                margin-left: -400px;
+            }
+        /* </> */
+
+        #lado_dados{
+            float: left;
+            /*border-radius: 15px;*/
+            width: 90%;
+            height: 100%;
+        }
+
+        #lado_obra{
+            float: right;
+            background-color: black;
+            width: 60%;
+            height: 100%;
+            /*border-radius: 0px 15px 15px 0px;*/
+        }
+
+        #dado_nome{
+            background-color: black;
+            width: 90%;
+            margin: auto;
+            height: 100px;
+            padding: 15px 0px;
+            
+        }
+
+        #dado_descricao{
+            background-color: black;
+            width: 90%;
+            margin: auto;
+            height: 200px;
+            padding: 15px 0px;
+            margin-top: -15px;
+        }
+
+        label{
+            padding: 10px;
+            color: rgb(131, 57, 200);
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        input{
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            padding: 15px;
+            margin: 5px;
+            outline: none;
+            background-color: #1c1c1c;
+            color: white;
+        }
+
+        input:focus{
+            border-color: rgb(131, 57, 200);
+            box-shadow: 0px 0px 5px 3px rgb(131, 57, 200);
+        }
+        
+        #obra{
+            background-color: rgb(131, 57, 200);
+            width: 420px;
+            height: auto;
+            outline: none;
+        }
+
+        input[type="file"]{
+            display: none;
+        }
+        
+        #label_obra{
+            position: absolute;
+            padding: 15px 10px;
+            width: 260px;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            border: 4px solid rgb(45, 187, 45);
+            border-radius: 5px;
+            color: rgb(45, 187, 45);
+            cursor: pointer;
+            margin-top: 75px;
+            margin-left: -140px;
+            transition: linear, color 0.3s, background-color 0.3s;
+        }
+        
+        #label_obra:hover{
+            color: rgb(0, 0, 0);
+            background-color: rgb(45, 187, 45);
+        }
+
+        #label_obra:active{
+            transform: scale(0.9);
+        }
+
+        textarea{
+            width: 90%;
+            padding: 15px;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            outline: none;
+            resize: none;
+            margin-top: 10px;
+            background-color: #1c1c1c;
+        }
+
+        textarea:focus{
+            border-color: rgb(131, 57, 200);
+            box-shadow: 0px 0px 5px 3px rgb(131, 57, 200);
+        }
+
+        #btn_voltar{
+            color: #fff;
+            background-color: rgb(32, 32, 32);
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 5px 15px;
+            font-size: 30px;
+            border: 2px solid #fff;
+            cursor: pointer;
+        }
+    
+        #btn_voltar:hover{
+            background-image: -webkit-linear-gradient(top, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221));
+        }
+    
+        #btn_voltar:active{
+            transform: scale(0.9);
+        }
+
+        #btn_publicar{
+            color: white;
+            border: none;
+            width: 310px;
+            height: 45px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            outline: none;
+            background-color: rgb(45, 187, 45);
+            cursor: pointer;
+        }
+
+        #btn_publicar:hover{
+            background-color: rgb(24, 139, 24);
+        }
+    /* </> */
+
+    /* < Área de Publicações ou Postagens > */
+        #btn_posts{
+            margin-top: 50px;
+        }
+
+        #btn_addPost{
+            color: white;
+            border: none;
+            width: 310px;
+            height: 45px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            outline: none;
+            background-color: rgb(45, 187, 45);
+            cursor: pointer;
+            margin: auto;
+        }
+
+        #btn_addPost:hover{
+            background-color: rgb(24, 139, 24);
+        }
+
+        /* < Linha Horizontal que contém a palavra "OU" do FORM > */
+            #titulo_posts{
+                margin-top: 50px;
+                margin-bottom: -30px;
+            }
+            
+            h4{
+                color: rgb(0, 0, 0);
+                margin: auto;
+                line-height: 0px;
+                margin-top: 30px;
+            }
+
+            h4:before{
+                background-color: rgb(0, 0, 0);
+                display: inline-block;
+                width: 37%;
+                height: 2px;
+                content: "";
+                margin-right: 575px;
+            }
+
+            h4:after{
+                background-color: rgb(0, 0, 0);
+                display: inline-block;
+                width: 37%;
+                height: 2px;
+                content: "";
+                margin-left: 575px;
+            }
+        /* </> */
+
+        #posts{
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .posted_works{
+            width: 30%;
+            height: 300px;
+            margin: 15px;
+            background-color: #1c1c1c;
+            margin-bottom: 15px;
+            margin-top: 45px;
+            /*background-image: -webkit-linear-gradient(top, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221));*/
+            /*box-shadow: 0px 0px 10px 3px rgb(0, 0, 0);*/
+        }
+
+        .moldura_obra:hover{
+            filter: grayscale(100%);
+        }
+
+        #nome_obra{
+            background-color: #000;
+            color: white;
+            padding: 5px 10px;
+        }
+
+        /* Modal Posts */
+        .area_posts_modal{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.705);
+            position: fixed;
+            visibility: hidden;
+            z-index: 1;
+        }
+
+        .conteudo_posts_modal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #view_posts{
+            width: 85vw;
+            height: 80%;
+            text-align: center;
+            background-color: #1c1c1c;
+            /*border-radius: 15px;*/
+            /*box-shadow: 0px 0px 10px 3px rgb(0, 0, 0);*/
+        }
+
+        #posts_modal{
+            float: left;
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .posted_works_modal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 95%;
+            height: 100%;
+        }
+
+        #data_posts{
+            float: right;
+            width: 40%;
+            height: 100%;
+            background-color: rgb(155, 155, 155);
+        }
+
+        .posted_names{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 100px;
+            background-color: white;
+            padding: 15px;
+            margin: 75px auto;
+        }
+
+        .posted_descs{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 275px;
+            background-color: white;
+            padding: 15px;
+            margin: -60px auto;
+        }
+
+        p{
+            font-size: 18px;
+        }
+
+        .posts_modal_active{
+            visibility: visible;
+        }
+
+        #btn_seta_anterior, #btn_seta_proxima{
+            color: #fff;
+            font-size: 75px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #btn_seta_anterior:hover, #btn_seta_proxima:hover{
+            color: rgb(131, 57, 200);
+        }
+
+        #btn_seta_anterior:active, #btn_seta_proxima:active{
+            transform: scale(0.7);
+        }
+
+        #btn_voltar_x{
+            color: #fff;
+            background-color: #000;
+            position: absolute;
+            top: 85px; /* top: 30px; */
+            right: 115px; /* right: 50px; */
+            padding: 5px 10px;
+            font-size: 25px;
+            border: 2px solid #fff;
+            cursor: pointer;
+        }
+
+        #btn_voltar_x:hover{
+            background-color: #f00;
+        }
+    /* </> */
+
+    /* < Área de Informações Sobre o Usuário/Artista > */
+        #area_sobre{
+            height: 630px;
+            display: flex;
+            /*overflow: auto;*/
+            box-shadow: 0px 0px 10px 3px rgb(0, 0, 0);
+            background-color: #1c1c1c;
+        }
+
+        #informacoes_usuario{
+            width: 100%;
+            height: 100%;
+            margin: 15px;
+            color: white;
+        }
+
+        .dados{
+            width: 90%;
+            font-size: 25px;
+            padding: 20px;
+            background-color: rgb(0, 0, 0);
+            margin: 20px;
+        }
+
+        .informacoes{
+            color: rgb(131, 57, 200);
+        }
+    /* </> */
+
+    /* < Área de Amigos/Contatos Artísticos > */
+    #area_amigos{
+        height: 630px;
+        display: flex;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.726);
+    }
+
+    #informacoes_amigos{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin: 15px;
+        color: white;
+    }
+
+    #contatos_amigos{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 300px;
+    }
+    
+    .contatos_amigos{
+        width: 90%;
+        height: 100px;
+        color: rgb(131, 57, 200);
+        font-size: 25px;
+        padding: 10px;
+        background-color: rgb(0, 0, 0);
+        margin: 10px;
+        border-bottom: 15px solid rgb(131, 57, 200);
+    }
+
+    #avatar_amigos{
+        display: flex;
+        align-items: center;
+    }
+
+    #nome_amigos{
+        font-size: 25px;
+    }
+/* </> */
+
+/* < Área de Doações > */
+    #area_doar{
+        height: 630px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #doacao{
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
+        padding-bottom: 50px;
+    }
+
+    #titulo_doar{
+        font-size: 35px;
+        font-weight: bold;
+        background-color: black;
+        color: rgb(131, 57, 200);
+        padding: 5px 20px;
+    }
+
+    #btn_doar{
+        color: white;
+        border: none;
+        width: 300px;
+        height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        outline: none;
+        background-color: rgb(45, 187, 45);
+        cursor: pointer;
+        margin: auto;
+    }
+
+    #btn_doar:hover{
+        background-color: rgb(24, 139, 24);
+    } 
+    
+    #mais_sobre_mim{
+        margin-top: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px 0px rgb(255, 255, 255);
+        padding-bottom: 25px;
+    }
+
+    #titulo_mais_sobre_mim{
+        background-color: black;
+        color: rgb(131, 57, 200);
+        padding: 5px 20px;
+    }
+
+    #input_veja_mais{
+        width: 500px;
+    }
+/* </> */
+
+    #avatar{
+        float: left;
+        width: 270px;
+        height: 270px;
+        background-image: -webkit-linear-gradient(top, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221));
+        margin-bottom: 10px;
+    }
+
+    #menu_informacoes{
+        float: left;
+        width: 270px;
+        height: 100%;
+    }
+
+    #menu_informacoes ul li{
+        list-style: none;
+        display: inline;
+    }
+
+    #menu_informacoes ul li a{
+        display: inline-block;
+        text-decoration: none;
+        font-size: 25px;
+        padding: 10px;
+        color: rgb(131, 57, 200);
+        width: 240px;
+        margin-bottom: 2px;
+        /*background-color: rgb(93, 93, 93);*/
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        border-right: 10px solid rgb(131, 57, 200);
+    }
+
+    #menu_informacoes ul li a:hover{
+        color: rgb(131, 57, 200);
+        border-right: 10px solid rgb(131, 57, 200);
+        width: 240px;
+        /*background-color: black;*/
+    }
+
+    #btn_editar_perfil{
+        border: none;
+        outline: none;
+        width: 270px;
+        height: 50px;
+        background-color: rgb(47, 68, 253);
+        font-size: 25px;
+        padding: 10px;
+        color: black;
+        margin-top: 96px;
+        border-radius: 5px;
+    }
+
+    #btn_editar_perfil:hover{
+        background-color: rgb(38, 49, 212);
+    }
+
+    #degrade_superior{
+        height: 30px;
+        margin-bottom: 10px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    #degrade_inferior{
+        height: 30px;
+        margin-top: 650px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    /*#rodape{
+        clear: both;
+        margin-top: 140px;
+        width: 100%;
+        height: 100px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+        text-align: center;
+        line-height: 100px;
+        font-size: 18px;
+        font-weight: bold;
+    }*/
+
+    #rodape{
+        clear: both;
+        width: 100%;
+        height: 340px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+        margin-top: 50px;
+        font-size: 20px;
+    }
+
+    #informacoes{
+        display: flex;
+        justify-content: space-around;
+        font-size: 18px;
+        background-color: black;
+        color: white;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+    }
+
+    .titulo_informacoes{
+        color: rgb(131, 57, 200);
+        text-align: center;
+        padding: 10px;
+    }
+
+    #sobre_rodape{
+        width: 600px;
+        padding: 10px;
+        margin: 10px;
+        /*background-color: #1c1c1c;*/
+        text-align: justify;
+    }
+
+    .sobre_informacoes{
+        width: 550px;
+        margin-bottom: 10px;
+    }
+
+    #contatos{
+        width: 400px;
+        padding: 10px;
+        margin: 10px;
+        /*background-color: #353535;*/
+        text-align: justify;
+    }
+
+    .contato_email{
+        margin-bottom: 10px;
+    }
+
+    #copyright{
+        text-align: center;
+        line-height: 75px;
+        font-weight: bold;
+    }

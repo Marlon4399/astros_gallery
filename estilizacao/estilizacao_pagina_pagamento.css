@@ -1,0 +1,412 @@
+/* HOME_USUARIOS.HTML */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #1c1c1c;
+}
+
+.container{
+    width: 1300px;
+    margin: auto;
+}
+
+/* < Menu do Header > */
+    #cabecalho{
+        width: 100%;
+        height: 220px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    img{
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+
+    #logo{
+        float: left;
+    }
+
+    #nome_logo{
+        border-radius: 0;
+        position: absolute;
+        width: 250px;
+        height: 225px;
+        margin-top: 30px;
+    }
+
+    #menu_h #lista_h{
+        float: right;
+        list-style: none;
+    }
+
+    #menu_h #lista_h .linha_h{
+        display: inline;
+    }
+
+    #menu_h #lista_h .linha_h .item_h{
+        padding: 97px 40px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    #menu_h #lista_h .linha_h .item_h:hover{
+        color: black;
+        background-image: -webkit-linear-gradient( bottom, rgb(255,255,255), transparent);
+    }
+/* </> */
+
+#fundo_tematico_pagamento{
+    width: 100%;
+    height: 350px;
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.705);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* < Popup container para Instruções de Pagamento > */
+    .popupPagamento{
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    /* O popup real */
+    .popupPagamento .popuptextPagamento{
+        visibility: hidden;
+        width: 1200px;
+        height: 425px;
+        background-color: rgb(0, 0, 0);
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        bottom: -20%;
+        left: 3%;
+        margin-left: -335px;
+        padding: 20px;
+        font-size: 25px;
+        box-shadow: 0px 0px 10px 5px rgb(131, 57, 200);
+    }
+
+    /* Seta Popup */
+    .popupPagamento .popuptextPagamento::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 15px;
+    }
+
+    /* Alternar esta classe - ocultar e mostrar o popup */
+    .popupPagamento .showPagamento {
+        visibility: visible;
+        -webkit-animation: fadeIn 0.5s;
+        animation: fadeIn 0.5s;
+    }
+
+    /* Adicionar animação (fade no popup) */
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+    }
+
+    .text_popupPagamento{
+        text-align: justify;
+        margin-bottom: 35px;
+    }
+/* </> */
+
+#area_pagamento{
+    height: 900px;
+    margin-top: 100px;
+}
+
+/* < Apresentação da Obra > */
+    #obra_parte_superior{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 65px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    #avatar{
+        display: flex;
+        align-items: center;
+    }
+
+    #nome_usuario{
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    #obra{
+        float: left;
+        width: 68%;
+        height: 500px;
+        background-color: rgb(154, 160, 167);
+        margin-bottom: 25px;
+        box-shadow: 0px 0px 10px 3px black;
+    }
+
+    #conteudo_obra{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    #moldura{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1c1c1c;
+        border: 10px ridge goldenrod;
+        width: 375px;
+        height: 375px;
+    }
+
+    #icone_obra{
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+        border-radius: 0px;
+        border: 10px ridge goldenrod;
+        background-image: -webkit-linear-gradient(bottom, rgb(0, 0, 0), rgb(68, 0, 255), rgb(184, 35, 221), rgb(255, 255, 255));
+    }
+
+    #informacoes_obra{
+        width: 50%;
+    }
+
+    #nome_obra{
+        margin-bottom: 20px;
+    }
+
+    #preco_obra{
+        color: rgb(145, 25, 192);
+    }
+/* </> */
+
+/* < Descrição da Obra/Produto > */
+    #descricao_obra{
+        clear: both;
+        min-height: 0px;
+        background-color: black;
+        box-shadow: 0px 0px 10px 1px white;
+        padding-bottom: 35px;
+    }
+
+    #descricao{
+        margin-left: 10px;
+    }
+
+    #descricao_parte_superior{
+        display: flex;
+        align-items: center;
+        height: 65px;
+        margin-bottom: 40px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    #conteudo_descricao{
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+    #informacoes_descricao{
+        margin: auto;
+        width: 80%;
+        padding: 30px;
+        font-size: 20px;
+        text-align: justify;
+        background-color: #1c1c1c;
+        border: 10px dashed rgb(131, 57, 200);
+    }
+
+    #titulo_obra{
+        font-size: 30px; 
+        color: rgb(131, 57, 200);
+    }
+/* </> */
+
+/* < Chat para Negociação da Obra> */
+    #chat_parte_superior{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 65px;
+        border-radius: 15px 15px 0px 0px;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+
+    #negociacao{
+        margin-left: 10px;
+    }
+
+    #comprando{
+        display: flex;
+        justify-content: center;
+    }
+
+    #btn_comprar{
+        color: white;
+        border: none;
+        width: 310px;
+        height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 30px;
+        outline: none;
+        background-color: rgb(45, 187, 45);
+        cursor: pointer;
+    }
+
+    #btn_comprar:hover{
+        background-color: rgb(24, 139, 24);
+    }
+
+    #chat_negociacao{
+        float: right;
+        width: 30%;
+        height: 500px;
+        border-radius: 5%;
+        background-color: gray;
+        box-shadow: 0px 0px 10px 3px black;
+    }
+
+    #conteudo_chat_negociacao{
+        width: 95%;
+        height: 345px;
+        padding: 10px;
+        text-align: justify;
+        overflow: auto;
+        font-size: 18px;
+        color: white;
+        background-color: #1c1c1c;
+    }
+
+    #chat_parte_inferior{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 65px;
+        background-color: #1c1c1c;
+        border-radius: 0px 0px 15px 15px;
+        border-top: 5px solid rgba(0, 0, 0, 0.5);
+    }
+
+    #negociar{
+        width: 280px;
+        height: 20px;
+        padding: 10px;
+        outline: none;
+        border:none;
+        border-radius:25px;
+        font-size: 18px;
+    }
+
+    #icone_enviar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        border-radius: 100%;
+        cursor: pointer;
+        background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    }
+/* </> */
+
+/*#rodape{
+    width: 100%;
+    height: 100px;
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    text-align: center;
+    line-height: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 100px;
+}*/
+
+#rodape{
+    width: 100%;
+    height: 340px;
+    background-image: -webkit-linear-gradient( right, rgb(68, 0, 255), rgb(184, 35, 221));
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+#informacoes{
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    background-color: black;
+    color: white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.titulo_informacoes{
+    color: rgb(131, 57, 200);
+    text-align: center;
+    padding: 10px;
+}
+
+#sobre_rodape{
+    width: 600px;
+    padding: 10px;
+    margin: 10px;
+    /*background-color: #1c1c1c;*/
+    text-align: justify;
+}
+
+.sobre_informacoes{
+    width: 550px;
+    margin-bottom: 10px;
+}
+
+#contatos{
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    /*background-color: #353535;*/
+    text-align: justify;
+}
+
+.contato_email{
+    margin-bottom: 10px;
+}
+
+#copyright{
+    text-align: center;
+    line-height: 75px;
+    font-weight: bold;
+}
